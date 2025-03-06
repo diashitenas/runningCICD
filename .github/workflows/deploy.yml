@@ -21,5 +21,5 @@ jobs:
       # Step 3: Deploy file ke ECS menggunakan rsync
       - name: Deploy to Alibaba ECS
         run: |
-          rsync -avz -e "ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }}" ./ ubuntu@${{ secrets.ECS_IP }}:/var/www/mywebsite/runningCICD
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }}" ./ root@${{ secrets.ECS_IP }}:/var/www/mywebsite/runningCICD
           ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.ECS_IP }} "sudo systemctl restart nginx"
