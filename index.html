@@ -3,36 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diash Firdaus</title>
+    <title>Diash Firdaus - CV</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f4f4f9;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        h1 {
             color: #333;
-            font-size: 3em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 0;
         }
         .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
             text-align: center;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            border-radius: 10px 10px 0 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .profile-pic {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-top: -75px;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .about, .skills, .experience {
             background: #fff;
-            padding: 20px 40px;
+            padding: 20px;
+            margin: 20px 0;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .skills ul, .experience ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills li, .experience li {
+            background: #e0f7fa;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        footer {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            border-radius: 0 0 10px 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Diash Firdaus2</h1>
+        <header>
+            <h1>Diash Firdaus</h1>
+            <p>Software Developer</p>
+        </header>
+        <img src="path-to-your-photo.jpg" alt="Profile Picture" class="profile-pic">
+        <div class="about">
+            <h2>About Me</h2>
+            <p>Innovative and results-driven Software Developer with a strong background in full-stack development. Passionate about creating efficient and user-friendly applications.</p>
+        </div>
+        <div class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>HTML/CSS</li>
+                <li>React.js</li>
+                <li>Node.js</li>
+            </ul>
+        </div>
+        <div class="experience">
+            <h2>Experience</h2>
+            <ul>
+                <li>
+                    <strong>Software Developer</strong> at XYZ Company - 2020-Present
+                    <p>Developed and maintained web applications using modern technologies.</p>
+                </li>
+                <li>
+                    <strong>Junior Developer</strong> at ABC Corporation - 2018-2020
+                    <p>Assisted in the development of internal tools and features.</p>
+                </li>
+            </ul>
+        </div>
     </div>
+    <footer>
+        <p>&copy; 2023 Diash Firdaus. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
