@@ -21,7 +21,7 @@ jobs:
     - name: Deploy to ECS
       run: |
         ssh -o StrictHostKeyChecking=no ubuntu@52.221.237.118 << 'EOF'
-          cd /var/www/html/runningCICD
+          cd /var/www/runningCICD
           sudo git pull origin main
           # Restart Nginx or any other service if needed
           sudo systemctl restart nginx
