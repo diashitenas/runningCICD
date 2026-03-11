@@ -3,101 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diash Firdaus - CV</title>
+    <title>Diash Firdaus - AI Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             color: #333;
+            scroll-behavior: smooth;
         }
+
         .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 80px 20px;
         }
+
+        /* Header/Profile Section */
         header {
-            background: #4CAF50;
-            color: white;
-            padding: 20px 0;
-            border-radius: 10px 10px 0 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 50px 30px 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            transform: translateY(0);
+            animation: slideInDown 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
         }
+
         .profile-pic {
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
-            margin-top: -75px;
-            border: 5px solid #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: -90px auto 20px;
+            border: 8px solid white;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+            transition: transform 0.3s ease;
         }
-        .about, .skills, .experience {
-            background: #fff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        .profile-pic:hover {
+            transform: scale(1.05);
         }
-        .skills ul, .experience ul {
-            list-style-type: none;
-            padding: 0;
+
+        header h1 {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 5px;
+            font-weight: 700;
         }
-        .skills li, .experience li {
-            background: #e0f7fa;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
+
+        header .title {
+            font-size: 1.3em;
+            color: #764ba2;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
-        footer {
-            background: #4CAF50;
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 10px 0;
-            border-radius: 0 0 10px 10px;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Social Links */
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: slideInUp 0.8s ease-out;
+            transition: all 0.3s ease;
+            border-left: 5px solid #667eea;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.2);
+        }
+
+        .card h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2 i {
+            font-size: 1.5em;
+        }
+
+        .about {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            list-style: none;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1) rotate(-1deg);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .experience-item strong {
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .experience-item em {
+            color: #764ba2;
+            font-style: normal;
+        }
+
+        .experience-item p {
+            color: #666;
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            color: #667eea;
+            padding: 20px 0;
+            text-align: center;
             position: fixed;
             width: 100%;
             bottom: 0;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+        }
+
+        footer i {
+            color: #764ba2;
+            animation: heartbeat 1s infinite;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.1);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            .container {
+                padding: 20px 15px 80px 15px;
+            }
+
+            header {
+                padding: 40px 20px 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Diash Firdaus ITENAS</h1>
-            <p>AI Engineer</p>
+            <img src="https://via.placeholder.com/180/667eea/ffffff?text=DF" alt="Profile Picture" class="profile-pic">
+            <h1>Diash Firdaus</h1>
+            <p class="title">🚀 AI Engineer</p>
+            <span class="badge">Cloud Computing | Artificial Intelligence</span>
+            <div class="social-links">
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
         </header>
-        <img src="path-to-your-photo.jpg" alt="Profile Picture" class="profile-pic">
-        <div class="about">
-            <h2>About Me</h2>
-            <p>Innovative and results-driven Software Developer with a strong background in full-stack development. Passionate about creating efficient and user-friendly applications.</p>
+
+        <div class="card">
+            <h2><i class="fas fa-user-circle"></i> About Me</h2>
+            <p class="about">Innovative and results-driven AI Engineer with expertise in machine learning, cloud computing, and full-stack development. Passionate about leveraging cutting-edge technologies to create intelligent solutions that solve real-world problems. Always eager to learn and explore new frontiers in artificial intelligence.</p>
         </div>
-        <div class="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>JavaScript</li>
-                <li>Python</li>
-                <li>HTML/CSS</li>
-                <li>React.js</li>
-                <li>Node.js</li>
+
+        <div class="card">
+            <h2><i class="fas fa-code"></i> Technical Skills</h2>
+            <ul class="skills-grid">
+                <li class="skill-item">JavaScript</li>
+                <li class="skill-item">Python</li>
+                <li class="skill-item">HTML/CSS</li>
+                <li class="skill-item">React.js</li>
+                <li class="skill-item">Node.js</li>
+                <li class="skill-item">Machine Learning</li>
+                <li class="skill-item">Cloud Computing</li>
+                <li class="skill-item">Kubernetes</li>
             </ul>
         </div>
-        <div class="experience">
-            <h2>Experience</h2>
-            <ul>
-                <li>
-                    <strong>Software Developer</strong> at XYZ Company - 2020-Present
-                    <p>Developed and maintained web applications using modern technologies.</p>
-                </li>
-                <li>
-                    <strong>Junior Developer</strong> at ABC Corporation - 2018-2020
-                    <p>Assisted in the development of internal tools and features.</p>
-                </li>
-            </ul>
+
+        <div class="card">
+            <h2><i class="fas fa-briefcase"></i> Experience</h2>
+            <div class="experience-item">
+                <strong>AI Engineer</strong> <em>at Tech Solutions Inc. - 2022-Present</em>
+                <p>🎯 Led development of AI-powered applications using modern cloud infrastructure. Implemented machine learning models that improved system efficiency by 40%.</p>
+            </div>
+            <div class="experience-item">
+                <strong>Software Developer</strong> <em>at XYZ Company - 2020-2022</em>
+                <p>💡 Developed and maintained full-stack web applications. Collaborated with cross-functional teams to deliver scalable solutions.</p>
+            </div>
+            <div class="experience-item">
+                <strong>Junior Developer</strong> <em>at ABC Corporation - 2018-2020</em>
+                <p>🌱 Assisted in development of internal tools and features. Gained foundational knowledge in web development best practices.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Made with <i class="fas fa-heart"></i> by Diash Firdaus © 2024</p>
+    </footer>
         </div>
     </div>
     <footer>
